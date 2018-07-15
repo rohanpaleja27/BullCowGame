@@ -36,6 +36,7 @@ void PrintIntro()
 void PlayGame()
 {
 	
+	BCGAME.Reset();
 	int MaxTries = BCGAME.GetMaxTries();
 	//loop for number of turns
 	for (int count = 0; count < MaxTries; count++)

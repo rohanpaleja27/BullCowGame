@@ -7,6 +7,8 @@
 class FBullCowGame
 {
 public:
+	FBullCowGame(); //constructor
+
 	int GetMaxTries() const;
 	int GetCurrentTry() const;
 	bool IsGameWon() const;
@@ -15,6 +17,7 @@ public:
 	void Reset(); //TODO make a more rich return value.
 
 private:
-	int MyCurrentTry=1;
-	int MyMaxTries = 5;
+	// see constructor for initialization
+	int MyCurrentTry;
+	int MyMaxTries;
 };
