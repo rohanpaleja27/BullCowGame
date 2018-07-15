@@ -48,7 +48,7 @@ void PlayGame()
 
 std::string GetGuess()
 {
-	int CurrentTry = BCGAME.GetCurrentTry;
+	int CurrentTry = BCGAME.GetCurrentTry();
 	// get the guess from the player
 	std::cout << "Enter guess #" << CurrentTry << ": ";
 	std::string Guess = "";
