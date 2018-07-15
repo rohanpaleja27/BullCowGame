@@ -4,19 +4,17 @@
 using namespace std;
 
 void PrintIntro();
-string GetGuessAndPrintBack();
+void PlayGame();
+string GetGuess();
+void PrintGuess(string Guess);
 
 int main()
 {
 	
 	PrintIntro();
+	PlayGame();
+	
 
-	//loop for number of turns
-	constexpr int NUMBER_OF_TURNS = 5;
-	for (int count = 0; count < NUMBER_OF_TURNS; count++)
-	{
-		GetGuessAndPrintBack();
-	}
 
 	return 0;
 }
@@ -31,15 +29,30 @@ void PrintIntro()
 	return;
 }
 
-string GetGuessAndPrintBack()
+void PlayGame()
+{
+	//loop for number of turns
+	constexpr int NUMBER_OF_TURNS = 5;
+	for (int count = 0; count < NUMBER_OF_TURNS; count++)
+	{
+		string Guess = GetGuess();
+		PrintGuess(Guess);
+	}
+	return;
+}
+
+string GetGuess()
 {
 	// get the guess from the player
 	cout << "Enter your guess: ";
 	string Guess = "";
 	getline(cin, Guess);
-
+	return Guess;
+}
+void PrintGuess(string Guess)
+{
 	// Repeat guess back do them
 	cout << "Your guess was: " << Guess << endl;
 	cout << endl;
-	return Guess;
+	return;
 }
