@@ -48,9 +48,9 @@ void PlayGame()
 	BCGAME.Reset();
 	int32 MaxTries = BCGAME.GetMaxTries();
 
-	//loop for number of turns
-	// TODO change from for to while loop 
-	for (int32 count = 0; count < MaxTries; count++)
+	//loop for number of turns while the game is 
+	// NOT won and there are still tries remaining
+	while (! BCGAME.IsGameWon() && BCGAME.GetCurrentTry() <= MaxTries)
 	{
 		FText Guess = GetValidGuess();
 		FBullCowCount BullCowCount = BCGAME.SubmitValidGuess(Guess);
