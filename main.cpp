@@ -63,7 +63,7 @@ void PlayGame()
 	}
 	PrintGameSummary();
 	return;
-	// TODO: Summarize game
+	
 }
 
 // Function will loop continuosly till it recieves a valid guess
