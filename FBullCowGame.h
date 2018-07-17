@@ -34,7 +34,7 @@ public:
 
 	void Reset(); //TODO make a more rich return value.
 	// method for counting bulls & cows, and incrementing try number, assumes valid guess
-	FBullCowCount SubmitGuess(FString Guess);
+	FBullCowCount SubmitValidGuess(FString Guess);
 private:
 	// see constructor for initialization
 	int32 MyCurrentTry;
