@@ -75,7 +75,7 @@ FText GetValidGuess()
 	{
 		// get the guess from the player
 		int32 CurrentTry = BCGAME.GetCurrentTry();
-		std::cout << "Enter guess #" << CurrentTry << ": ";
+		std::cout << "Enter guess #" << CurrentTry << " of " << BCGAME.GetMaxTries() << ": ";
 		
 		std::getline(std::cin, Guess);
 		Status = BCGAME.CheckGuessValidity(Guess);
@@ -104,6 +104,7 @@ void PrintGuess(FText Guess)
 {
 	// Repeat guess back do them
 	std::cout << "Your guess was: " << Guess << std::endl;
+	std::cout << "You have " << BCGAME.GetMaxTries() - BCGAME.GetCurrentTry()+1 << " guesses left" << std::endl;
 	std::cout << std::endl;
 	return;
 }
