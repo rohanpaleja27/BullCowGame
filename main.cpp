@@ -79,6 +79,7 @@ FText GetValidGuess()
 		
 		std::getline(std::cin, Guess);
 		Status = BCGAME.CheckGuessValidity(Guess);
+
 		switch (Status)
 		{
 		case EGuessStatus::Wrong_Length:
