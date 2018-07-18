@@ -1,7 +1,9 @@
+#pragma once
 #include "FBullCowGame.h"
 #include <map>
-#define TMap std::map
 
+// to make syntax more unreal friendly
+#define TMap std::map
 using int32 = int;
 
 FBullCowGame::FBullCowGame() 
@@ -14,7 +16,8 @@ int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLength() const { return MyHiddenWord.length(); }
 bool FBullCowGame::IsGameWon() const { return bGameIsWon; }
 
-int32 FBullCowGame::GetMaxTries() const {
+int32 FBullCowGame::GetMaxTries() const 
+{
 	TMap <int32, int32> WordLengthToMaxTries{ {3,5}, {4,6}, {5,9}, {6,13}, {7,20} };
 	return WordLengthToMaxTries[MyHiddenWord.length()];
 }
@@ -22,7 +25,7 @@ int32 FBullCowGame::GetMaxTries() const {
 
 void FBullCowGame::Reset()
 {
-	const FString HIDDEN_WORD = "planet";
+	const FString HIDDEN_WORD = "planet"; // this MUST be an isogram
 	bGameIsWon = false;
 	MyCurrentTry = 1;
 	MyHiddenWord = HIDDEN_WORD;
@@ -75,9 +78,7 @@ bool FBullCowGame::IsIsogram(FString Guess) const
 		return true;
 	}
 
-	//setup our map
 	TMap<char, bool> LetterSeen;
-	// loop through the word Guess
 	for (auto Letter : Guess) // for all letters of the word
 	{
 		Letter = tolower(Letter); // Changes letter to lowercase
@@ -90,11 +91,9 @@ bool FBullCowGame::IsIsogram(FString Guess) const
 		{
 			return false; // if its true return false
 		}
-			
-			
 	//else return true
 	}
-	return true; // for cases of something like /0
+	return true; 
 }
 
 bool FBullCowGame::IsLowercase(FString Guess) const
@@ -106,7 +105,6 @@ bool FBullCowGame::IsLowercase(FString Guess) const
 			return false;
 		}
 	}
-	
 	return true;
 }
 
@@ -118,11 +116,11 @@ EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
 	if (!IsIsogram(Guess)) // If guess isn't an isogram  	
 	{
-		return EGuessStatus::Not_Isogram; //TODO write method
+		return EGuessStatus::Not_Isogram; 
 	}
 	else if (!IsLowercase(Guess))// if the guess isn't all lowercase   
 	{
-		return EGuessStatus::Not_Lowercase; //TODO write method
+		return EGuessStatus::Not_Lowercase; 
 	}
 	else if (Guess.length() != GetHiddenWordLength()) // if the guess isn't the right length
 	{
