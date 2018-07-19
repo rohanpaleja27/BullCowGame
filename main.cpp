@@ -5,6 +5,7 @@ user interaction. For game logic, see the FBullCowGame class..
 */
 
 
+
 #pragma once
 
 #include <iostream>
@@ -16,6 +17,7 @@ using int32 = int;
 using FText = std::string;
 
 // function prototypes outside of class
+// Large functons for game play
 void PrintIntro();
 void PlayGame();
 FText GetValidGuess();
